@@ -34,5 +34,7 @@ public class Main {
         slider.addChangeListener(e -> button.setText("Value: " + slider.getValue()));
         button2.addActionListener(e -> {secondary_frame secondaryFrame = new secondary_frame();});
         frame.setVisible(true);
+
+        dahdkjasdhkjasdhjkas
     }
 }
