@@ -3,6 +3,14 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
+        // If running in a headless environment (like Codespaces), avoid creating Swing UI
+        if (GraphicsEnvironment.isHeadless()) {
+            System.out.println("Headless environment detected. Running in CLI mode.");
+            System.out.println("Default slider value: 50");
+            // TODO: Add non-GUI behavior here if needed
+            return;
+        }
+
         JFrame frame = new JFrame("TEST");
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
