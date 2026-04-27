@@ -36,5 +36,6 @@ public class Main {
         frame.setVisible(true);
         llll
                 7moooooooooo
+            7amooo el tenen
     }
 }
