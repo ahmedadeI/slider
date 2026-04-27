@@ -1,0 +1,14 @@
+{
+  "name": "Java Codespace",
+  "image": "mcr.microsoft.com/devcontainers/java:0-17",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-maven"
+      ]
+    }
+  },
+  "postCreateCommand": "javac -version || true"
+}

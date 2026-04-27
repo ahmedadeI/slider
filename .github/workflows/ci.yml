@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Compile Java sources
+        run: |
+          mkdir -p out/production
+          echo "Compiling Java sources..."
+          if ls src/*.java 1> /dev/null 2>&1; then
+            javac -d out/production src/*.java
+          else
+            echo "No .java sources found in src/"
+          fi
+      - name: Run quick smoke (if Main exists)
+        run: |
+          if [ -f out/production/Main.class ]; then
+            echo "Running Main..."
+            java -cp out/production Main || true
+          else
+            echo "No Main.class to run"
+          fi
